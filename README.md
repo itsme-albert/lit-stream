@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📝 Core Concept:
+A subscription-based web platform where users can browse, read, and save books, similar to how Netflix streams videos — but instead of movies/shows, your content is books, novels, or even short stories.
 
-## Getting Started
+🔧 Tech Stack Suggestion:
+Frontend: Next.js + TailwindCSS + shadcn/ui
 
-First, run the development server:
+Backend: Supabase (Auth, Database, Storage)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Optional: Stripe (for subscriptions), PDF.js or EPUB.js (for reading/viewing books), Framer Motion for animations
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🌟 Key Features:
+🔐 Authentication
+Sign up / Sign in (with email or social logins)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Profiles (Basic reader profile)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📚 Browse Books
+Categories (Fiction, Non-fiction, Sci-fi, Self-help, etc.)
+Featured, Trending, New Releases
+Search and filters
 
-## Learn More
+📖 Reading Experience
+In-browser reader (PDF/EPUB support)
+Bookmarks and highlights
+Continue reading (save progress)
+Night mode
 
-To learn more about Next.js, take a look at the following resources:
+💾 Library
+“My List” or "Watch Later" equivalent
+Recently read
+Recommendations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+💳 Subscription (Optional)
+Freemium access (limited books)
+Premium users can unlock full catalog
+Stripe or Supabase Stripe extension
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📈 Admin Panel (Optional)
+Upload/manage books
+View user engagement
+Approve/reject user-submitted content
 
-## Deploy on Vercel
+🗃️ Database Schema Example (Supabase):
+users
+- id
+- email
+- name
+- subscription_status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+books
+- id
+- title
+- author
+- category
+- cover_url
+- file_url
+- description
+- published_date
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+user_books
+- id
+- user_id
+- book_id
+- progress (e.g. % or last page read)
+
+favorites
+- user_id
+- book_id
